@@ -13,20 +13,20 @@ public class CucumberTeleop extends LinearOpMode {
         waitForStart();
         while (opModeIsActive()) {
 
-            motorAction(gamepad1);
+            motorAction(gamepad1,gamepad2);
 
 
         }
     }
 
-    public void motorAction(Gamepad gamepad) {
+    public void motorAction(Gamepad gamepad, Gamepad gamepad2 ) {
         double y = -gamepad.left_stick_y; // Remember, Y stick value is reversed
         double x = gamepad.left_stick_x * 1.1; // Counteract imperfect strafing
         double rx = gamepad.right_stick_x;
 
-        if(gamepad.left_trigger>.1){
-            hub.leftWheel.setPower(gamepad.left_trigger);
-        }
+        //if(gamepad.left_trigger>.1){
+        //    hub.leftWheel.setPower(gamepad.left_trigger);
+        //}
         // Denominator is the largest motor power (absolute value) or 1
         // This ensures all the powers maintain the same ratio,
         // but only if at least one is out of the range [-1, 1]
